@@ -70,6 +70,8 @@ function App() {
     };
     const strNum = number.toString();
     setAvatarLocation(strNum);
+    console.log('avatarLocation', avatarLocation);
+    console.log('steps', steps);
   }
 
   useEffect(() => {
@@ -77,12 +79,9 @@ function App() {
   }, [steps]);
 
   useEffect(() => {
-    // let arr = [...items];
     let arr = items.map(item => item);
     setBoxes(arr)
   }, []);
-
-
 
   function avatarColor(pickedColor) {
     const boxesUpdate = [...boxes];
@@ -90,7 +89,6 @@ function App() {
     locate.color = pickedColor;
     setColor(pickedColor);
     setBoxes(boxesUpdate);
-    console.log('pickedColor', pickedColor);
   }
 
   return (
@@ -102,6 +100,7 @@ function App() {
           setAvatarLocation={setAvatarLocation}
           avatarLocation={avatarLocation}
           setSteps={setSteps}
+          color={color}
         />
         <SideBar
           avatarColor={avatarColor}

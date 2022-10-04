@@ -1,20 +1,18 @@
 import React from 'react';
 
-const ContainerItem = ({ item, xy, avatarLocation }) => {
+const ContainerItem = ({ xy, avatarLocation, color }) => {
 
-  const selectedItem = xy === avatarLocation
-    ? "container-item selected"
-    : "container-item";
+  const avatarLocationColor = xy === avatarLocation
+    ? color
+    : "";
 
   const isBorder = xy.includes('00') ? 'none' : '1px solid #535387';
   const writeNumber = !xy.includes('00') ? xy : '';
 
   return (
     <div
-      className={selectedItem}
-      // onClick={() => setAvatarLocation(xy)}
-
-      style={{ backgroundColor: item.color, border: isBorder }}
+      className='container-item'
+      style={{ backgroundColor: avatarLocationColor, border: isBorder }}
     >
       {writeNumber}
     </div>

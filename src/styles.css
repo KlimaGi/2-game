@@ -16,7 +16,7 @@
 }
 .d-flex {
   display: flex;
- justify-content: space-around;
+  justify-content: space-around;
 }
 .container {
   display: flex;
@@ -41,11 +41,6 @@
   padding: 1rem;
   margin: 0.5rem;
   /* border: 1px solid #535387; */
-}
-
-.selected{
-  background-color: var(--light-grey);
-  border: 2px solid var(--grey);
 }
 
 .button{

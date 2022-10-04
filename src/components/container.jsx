@@ -2,7 +2,7 @@ import React from 'react';
 import ContainerItem from './container-item';
 import RollDice from './roll-dice';
 
-const Container = ({ boxes, setSelectedBox, avatarLocation, setSteps }) => {
+const Container = ({ boxes, avatarLocation, setSteps, color }) => {
 
 
   return (
@@ -14,10 +14,10 @@ const Container = ({ boxes, setSelectedBox, avatarLocation, setSteps }) => {
         {boxes.map(box => (
           <ContainerItem
             key={box.xy}
-            item={box}
             xy={box.xy}
-            setSelectedBox={setSelectedBox}
-            avatarLocation={avatarLocation} />))
+            avatarLocation={avatarLocation}
+            color={color}
+          />))
         }
       </div>
     </div>
