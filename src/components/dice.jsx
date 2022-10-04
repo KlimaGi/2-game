@@ -6,21 +6,19 @@ import point4 from '../assets/point-4.svg';
 import point5 from '../assets/point-5.svg';
 import point6 from '../assets/point-6.svg';
 
-const Dice = ({ number }) => {
+const Dice = ({ number = 1 }) => {
   const [dice, setDice] = useState(null);
   const dices = [point1, point2, point3, point4, point5, point6];
   const dicePoint = dices[number - 1];
 
   useEffect(() => {
     setDice(dicePoint);
-  }, []);
+  }, [number]);
 
-  console.log('dicePoint', dicePoint);
-
+  //console.log('dicePoint', dicePoint);
+  console.log('number', number);
   return (
-    <div className='dice-size'>
-      <img src={dice} alt='dice points'></img>
-    </div>
+    <img width={50} src={dice} alt='dice points'></img>
   )
 }
 

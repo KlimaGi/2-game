@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Dice from './dice';
-import point1 from '../assets/point-1.svg';
 
 const RollDice = ({ setSteps }) => {
   const [getResult, setResult] = useState([0, 0]);
@@ -24,7 +23,7 @@ const RollDice = ({ setSteps }) => {
       <div className='d-flex'>
         <div>{getResult[0]}</div>
         <Dice number={getResult[0]} />
-        <img width={50} src={point1} alt='dice points'></img>
+        <Dice number={getResult[1]} />
         <div>{getResult[1]}</div>
       </div>
       <button onClick={result} className='button'>Roll dice</button>
