@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const RollDice = () => {
+const RollDice = ({ setSteps }) => {
   const [getResult, setResult] = useState([0, 0]);
 
   const result = () => {
@@ -13,12 +13,17 @@ const RollDice = () => {
     const dice2 = randomNumber(6, 1);
 
     setResult([dice1, dice2]);
+    setSteps(dice1 + dice2);
   };
 
+
+  // todo: make dice look good
   return (
-    <div>
-      <div>{getResult[0]}</div>
-      <div>{getResult[1]}</div>
+    <div className='roll-dice-block'>
+      <div className='d-flex'>
+        <div>{getResult[0]}</div>
+        <div>{getResult[1]}</div>
+      </div>
       <button onClick={result} className='button'>Roll dice</button>
     </div>
   )

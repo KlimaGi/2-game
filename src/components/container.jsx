@@ -2,13 +2,13 @@ import React from 'react';
 import ContainerItem from './container-item';
 import RollDice from './roll-dice';
 
-const Container = ({ boxes, setSelectedBox, avatarLocation }) => {
+const Container = ({ boxes, setSelectedBox, avatarLocation, setSteps }) => {
 
 
   return (
-    <div>
-      <div>
-        <RollDice />
+    <div className='main-block'>
+      <div className='inside-block'>
+        <RollDice setSteps={setSteps} />
       </div>
       <div className='container'>
         {boxes.map(box => (

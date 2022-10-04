@@ -59,3 +59,25 @@
   background-color: var(--light-grey);
   border-style: none;
 }
+
+/* container blocks */
+
+.d-flex {
+  display: flex;
+}
+
+.main-block {
+  position: relative;
+}
+.inside-block{
+position: absolute;
+right: 8.5rem;
+top: 11rem;
+
+}
+
+.roll-dice-block{
+  border: 1px solid var(--dark);
+  width: 18rem;
+  padding: 1rem;
+}

@@ -60,6 +60,8 @@ function App() {
 
   const [boxes, setBoxes] = useState([]);
   const [avatarLocation, setAvatarLocation] = useState('1');
+  const [steps, setSteps] = useState(0);
+  console.log('steps', steps);
 
   useEffect(() => {
     // let arr = [...items];
@@ -70,10 +72,10 @@ function App() {
 
 
   function avatarColor(pickedColor) {
-    // const boxesUpdate = [...boxes];
-    // const selected = boxesUpdate.find(x => x.xy === selectedBox);
-    // selected.color = pickedColor;
-    // setBoxes(boxesUpdate);
+    const boxesUpdate = [...boxes];
+    const locate = boxesUpdate.find(x => x.xy === avatarLocation);
+    locate.color = pickedColor;
+    setBoxes(boxesUpdate);
     console.log('pickedColor', pickedColor);
   }
 
@@ -81,7 +83,12 @@ function App() {
     <>
       <h3>Like monopoly game</h3>
       <div className="main d-flex">
-        <Container boxes={boxes} setAvatarLocation={setAvatarLocation} avatarLocation={avatarLocation} />
+        <Container
+          boxes={boxes}
+          setAvatarLocation={setAvatarLocation}
+          avatarLocation={avatarLocation}
+          setSteps={setSteps}
+        />
         <SideBar
           avatarColor={avatarColor}
         />
