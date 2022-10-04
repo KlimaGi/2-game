@@ -5,12 +5,12 @@ const RollDice = ({ setSteps }) => {
 
   const result = () => {
     const randomNumber = (max, min) => {
-      const result = Math.floor(Math.random() * (max - min + 1) + min);
+      const result = Math.floor(Math.random() * (max - min) + 1);
       return result;
     };
 
-    const dice1 = randomNumber(6, 1);
-    const dice2 = randomNumber(6, 1);
+    const dice1 = randomNumber(7, 1);
+    const dice2 = randomNumber(7, 1);
 
     setResult([dice1, dice2]);
     setSteps(dice1 + dice2);

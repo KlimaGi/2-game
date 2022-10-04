@@ -63,6 +63,22 @@ function App() {
   const [steps, setSteps] = useState(0);
   console.log('steps', steps);
 
+  const changeLocation = () => {
+    const number = Number(avatarLocation) + steps;
+    console.log('number', number);
+  }
+
+  useEffect(() => {
+    let number = Number(avatarLocation) + steps;
+    if (number > 16) {
+      number -= 16;
+    };
+    const strNum = number.toString();
+    setAvatarLocation(strNum)
+    console.log('number', number);
+    console.log('strNum', strNum);
+  }, [steps]);
+
   useEffect(() => {
     // let arr = [...items];
     let arr = items.map(item => item);
