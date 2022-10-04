@@ -61,22 +61,19 @@ function App() {
   const [boxes, setBoxes] = useState([]);
   const [avatarLocation, setAvatarLocation] = useState('1');
   const [steps, setSteps] = useState(0);
-  console.log('steps', steps);
+  const [color, setColor] = useState('#ffffff');
 
   const changeLocation = () => {
-    const number = Number(avatarLocation) + steps;
-    console.log('number', number);
-  }
-
-  useEffect(() => {
     let number = Number(avatarLocation) + steps;
     if (number > 16) {
       number -= 16;
     };
     const strNum = number.toString();
-    setAvatarLocation(strNum)
-    console.log('number', number);
-    console.log('strNum', strNum);
+    setAvatarLocation(strNum);
+  }
+
+  useEffect(() => {
+    changeLocation();
   }, [steps]);
 
   useEffect(() => {
@@ -91,6 +88,7 @@ function App() {
     const boxesUpdate = [...boxes];
     const locate = boxesUpdate.find(x => x.xy === avatarLocation);
     locate.color = pickedColor;
+    setColor(pickedColor);
     setBoxes(boxesUpdate);
     console.log('pickedColor', pickedColor);
   }
