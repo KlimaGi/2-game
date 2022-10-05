@@ -66,13 +66,15 @@
 }
 .inside-block{
 position: absolute;
-right: 8.5rem;
+right: 11rem;
 top: 11rem;
-
 }
 
 .roll-dice-block{
-  border: 1px solid var(--dark);
-  width: 18rem;
+  width: 12rem;
   padding: 1rem;
+}
+.roll-dice-block .button{
+  width: 8rem;
+  margin-top: 1rem;
 }
