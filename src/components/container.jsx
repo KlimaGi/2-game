@@ -4,7 +4,6 @@ import RollDice from './roll-dice';
 
 const Container = ({ boxes, avatarLocation, setSteps, color }) => {
 
-
   return (
     <div className='main-block'>
       <div className='inside-block'>

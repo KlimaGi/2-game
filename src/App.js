@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './styles.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './styles.css';
+import IndexPage from './pages/index-page';
+import GamePage from './pages/game-page';
+import MainContext from './context/main-context';
 import Container from './components/container';
 import SideBar from './components/side-bar';
 
 function App() {
-  const items = [
+  const gameMap = [
     {
       xy: '1', color: '',
     }, {
@@ -62,6 +66,7 @@ function App() {
   const [avatarLocation, setAvatarLocation] = useState('1');
   const [steps, setSteps] = useState(0);
   const [color, setColor] = useState('#ffffff');
+  const [playerImage, setPlayerImage] = useState('');
 
   const changeLocation = () => {
     let number = Number(avatarLocation) + steps;
@@ -79,7 +84,7 @@ function App() {
   }, [steps]);
 
   useEffect(() => {
-    let arr = items.map(item => item);
+    let arr = gameMap.map(item => item);
     setBoxes(arr)
   }, []);
 
@@ -91,22 +96,38 @@ function App() {
     setBoxes(boxesUpdate);
   }
 
+  const contextValue = {
+    gameMap,
+    avatarLocation,
+    setAvatarLocation,
+    playerImage,
+    setPlayerImage
+  }
+
   return (
-    <>
+    <MainContext.Provider value={contextValue}>
       <h3>Like monopoly game</h3>
-      <div className="main d-flex">
-        <Container
-          boxes={boxes}
-          setAvatarLocation={setAvatarLocation}
-          avatarLocation={avatarLocation}
-          setSteps={setSteps}
-          color={color}
-        />
-        <SideBar
-          avatarColor={avatarColor}
-        />
-      </div>
-    </>
+      <BrowserRouter>
+        <Routes>
+
+          <Route path='/' element={<IndexPage />} />
+          <Route path='/game' element={<GamePage />} />
+        </Routes>
+
+        <div className="main d-flex">
+          <Container
+            boxes={boxes}
+            setAvatarLocation={setAvatarLocation}
+            avatarLocation={avatarLocation}
+            setSteps={setSteps}
+            color={color}
+          />
+          <SideBar
+            avatarColor={avatarColor}
+          />
+        </div>
+      </BrowserRouter>
+    </MainContext.Provider>
   );
 }
 
