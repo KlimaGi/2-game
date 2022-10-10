@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles.css';
 import IndexPage from './pages/index-page';
 import GamePage from './pages/game-page';
 import MainContext from './context/main-context';
-import Container from './components/container';
-import SideBar from './components/side-bar';
 
 function App() {
   const gameMap = [
@@ -62,39 +60,8 @@ function App() {
     },
   ];
 
-  const [boxes, setBoxes] = useState([]);
   const [avatarLocation, setAvatarLocation] = useState('1');
-  const [steps, setSteps] = useState(0);
-  const [color, setColor] = useState('#ffffff');
   const [playerImage, setPlayerImage] = useState('');
-
-  const changeLocation = () => {
-    let number = Number(avatarLocation) + steps;
-    if (number > 16) {
-      number -= 16;
-    };
-    const strNum = number.toString();
-    setAvatarLocation(strNum);
-    console.log('avatarLocation', avatarLocation);
-    console.log('steps', steps);
-  }
-
-  useEffect(() => {
-    changeLocation();
-  }, [steps]);
-
-  useEffect(() => {
-    let arr = gameMap.map(item => item);
-    setBoxes(arr)
-  }, []);
-
-  function avatarColor(pickedColor) {
-    const boxesUpdate = [...boxes];
-    const locate = boxesUpdate.find(x => x.xy === avatarLocation);
-    locate.color = pickedColor;
-    setColor(pickedColor);
-    setBoxes(boxesUpdate);
-  }
 
   const contextValue = {
     gameMap,
@@ -114,18 +81,6 @@ function App() {
           <Route path='/game' element={<GamePage />} />
         </Routes>
 
-        <div className="main d-flex">
-          <Container
-            boxes={boxes}
-            setAvatarLocation={setAvatarLocation}
-            avatarLocation={avatarLocation}
-            setSteps={setSteps}
-            color={color}
-          />
-          <SideBar
-            avatarColor={avatarColor}
-          />
-        </div>
       </BrowserRouter>
     </MainContext.Provider>
   );

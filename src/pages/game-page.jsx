@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Container from '../components/container';
 
 const GamePage = () => {
-  return (
-    <div>
 
+  return (
+    <div className="main d-flex">
+      <Container />
     </div>
   )
 }

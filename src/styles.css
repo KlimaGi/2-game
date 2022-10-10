@@ -25,21 +25,27 @@
   background-color: var(--light);
   align-items: center;
 }
-.side-bar{
-  width: 15rem; 
+.input-container{
+  width: 35rem; 
+  margin: 0 auto;
   padding: 1rem;
   background-color: var(--light);
   display:flex;
-  flex-direction: column;
   align-items:center;
   justify-content: center;
+}
+.input{
+  padding: 1rem;
+  margin: 0.5rem;
+  box-sizing: border-box;
+  border-style: 2px solid var(--grey);
 }
 
 .container-item {
   width: 6rem;
   height: 5rem;
-  padding: 1rem;
   margin: 0.5rem;
+  object-fit: cover;
   /* border: 1px solid #535387; */
 }
 
@@ -77,4 +83,9 @@ top: 11rem;
 .roll-dice-block .button{
   width: 8rem;
   margin-top: 1rem;
+}
+
+.player-image{
+  width: 100%;
+  height: 100%;
 }

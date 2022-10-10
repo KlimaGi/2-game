@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MainContext from '../context/main-context';
 import ContainerItem from './container-item';
 import RollDice from './roll-dice';
 
-const Container = ({ boxes, avatarLocation, setSteps, color }) => {
+const Container = () => {
+
+  const { gameMap } = useContext(MainContext);
 
   return (
     <div className='main-block'>
       <div className='inside-block'>
-        <RollDice setSteps={setSteps} />
+        <RollDice />
       </div>
       <div className='container'>
-        {boxes.map(box => (
+        {gameMap.map(box => (
           <ContainerItem
             key={box.xy}
-            xy={box.xy}
-            avatarLocation={avatarLocation}
-            color={color}
+            box={box}
           />))
         }
       </div>
